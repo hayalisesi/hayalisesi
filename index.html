@@ -22,51 +22,40 @@
         .song-btn { transition: 0.3s; border-bottom: 1px solid rgba(212, 175, 55, 0.05); cursor: pointer; }
         .song-btn:hover { background: rgba(212, 175, 55, 0.1); padding-left: 10px; color: white; }
         .active-song { background: rgba(212, 175, 55, 0.15); border-left: 4px solid var(--gold); color: white; padding-left: 10px; }
-        .lyrics-box { display: none; margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.1); font-style: italic; line-height: 1.8; color: #ccc; }
-        #privacyModal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
         .custom-scroll::-webkit-scrollbar { width: 5px; }
-        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
         .custom-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
     </style>
 </head>
 <body>
     <div class="mist-bg"></div>
-
     <header class="pt-12 pb-8 text-center px-4">
         <div class="hayali-mühür"></div>
         <h1 class="text-4xl font-bold tracking-[0.2em] mb-2" style="font-family: 'Cinzel';">HAYALİ SESİ</h1>
-        <p class="text-[9px] tracking-[0.4em] uppercase opacity-40 mb-6">@hayalisesi</p>
-        
-        <div class="flex justify-center gap-10 flex-wrap text-left">
+        <p class="text-[9px] tracking-[0.4em] uppercase opacity-40 mb-6 italic">@hayalisesi</p>
+        <div class="flex justify-center gap-10 flex-wrap text-left text-[10px] font-bold tracking-widest">
             <div class="flex flex-col gap-3">
-                <a href="https://open.spotify.com/search/hayalisesi9" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="w-4 invert"> Spotify</a>
-                <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-4 invert"> YouTube</a>
+                <a href="#" target="_blank" class="opacity-70 hover:opacity-100 transition">Spotify</a>
+                <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition">YouTube</a>
             </div>
             <div class="flex flex-col gap-3">
-                <a href="https://www.instagram.com/hayalisesi" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" class="w-4 invert"> Instagram</a>
-                <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="w-4 invert"> TikTok</a>
+                <a href="https://www.instagram.com/hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition">Instagram</a>
+                <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition">TikTok</a>
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div class="lg:col-span-2">
-            <div class="glass-card p-5">
+            <div class="glass-card p-5 text-center">
                 <div class="relative pb-[56.25%] h-0 rounded-xl overflow-hidden border border-[#d4af37]/20">
-                    <iframe id="mainPlayer" class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/FL-Zobmon9g?autoplay=0" frameborder="0" allowfullscreen></iframe>
+                    <iframe id="mainPlayer" class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/FL-Zobmon9g" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <div class="mt-8 text-center">
-                    <h2 id="nowPlayingTitle" class="text-xl tracking-widest uppercase" style="font-family: 'Cinzel';">Canımın İçi</h2>
-                    <button onclick="toggleLyrics()" class="mt-4 text-[9px] border border-[#d4af37]/30 px-6 py-2 rounded-full uppercase tracking-widest hover:bg-[#d4af37] hover:text-black transition">Sözleri Gör</button>
-                    <div id="lyricsBox" class="lyrics-box text-sm">
-                        Seçili şarkının mühürlü sözleri burada belirecek...
-                    </div>
-                </div>
+                <h2 id="nowPlayingTitle" class="mt-8 text-xl tracking-widest uppercase" style="font-family: 'Cinzel';">Canımın İçi</h2>
             </div>
         </div>
 
         <div class="lg:col-span-1">
-            <div class="glass-card p-6 h-[600px] flex flex-col">
+            <div class="glass-card p-6 h-[500px] flex flex-col">
                 <h3 class="text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#d4af37]/20 pb-2">Eser Koleksiyonu</h3>
                 <div class="overflow-y-auto flex-grow custom-scroll pr-2 space-y-1">
                     <div onclick="updatePlayer('FL-Zobmon9g', 'Canımın İçi', this)" class="song-btn p-3 text-[11px] active-song">01. Canımın İçi</div>
@@ -100,41 +89,23 @@
         <div class="glass-card p-8">
             <h3 class="text-xs tracking-[0.4em] uppercase mb-8 text-center">Gönül Defteri</h3>
             <form name="gonul_defteri" method="POST" data-netlify="true" class="space-y-4">
-                <input type="text" name="mahlas" placeholder="Mahlasınız" required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-[#d4af37]">
-                <textarea name="mesaj" rows="3" placeholder="Hasretinizi mühürleyin..." required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-[#d4af37]"></textarea>
+                <input type="text" name="mahlas" placeholder="Mahlasınız" required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-xs text-white focus:outline-none">
+                <textarea name="mesaj" rows="3" placeholder="Hasretinizi mühürleyin..." required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-xs text-white focus:outline-none"></textarea>
                 <button type="submit" class="w-full bg-[#d4af37] text-black py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:opacity-80 transition">Mührü Bas</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-12 text-center opacity-30 border-t border-white/5">
-        <button onclick="togglePrivacy()" class="text-[9px] uppercase tracking-[0.3em] mb-4">Gizlilik Açıklaması</button>
+    <footer class="py-12 text-center opacity-30">
         <p class="text-[9px] tracking-[0.5em] uppercase">© 2026 HAYALİ SESİ</p>
     </footer>
-
-    <div id="privacyModal">
-        <div class="max-w-xl mx-auto mt-24 p-10 glass-card mx-6 text-[11px] text-gray-400 italic">
-            <h2 class="text-xl mb-6 tracking-widest text-gold font-bold">GİZLİLİK POLİTİKASI</h2>
-            <p>Bu site Google Analytics (G-9KQ36DLC51) altyapısını kullanır. Verileriniz anonimdir.</p>
-            <button onclick="togglePrivacy()" class="mt-8 border border-gold px-8 py-2 text-[9px] uppercase transition">Kapat</button>
-        </div>
-    </div>
 
     <script>
         function updatePlayer(id, title, el) {
             document.getElementById('mainPlayer').src = `https://www.youtube.com/embed/${id}?autoplay=1`;
             document.getElementById('nowPlayingTitle').innerText = title;
-            document.getElementById('lyricsBox').style.display = 'none';
             document.querySelectorAll('.song-btn').forEach(btn => btn.classList.remove('active-song'));
             el.classList.add('active-song');
-        }
-        function toggleLyrics() {
-            const b = document.getElementById("lyricsBox");
-            b.style.display = (b.style.display === "block") ? "none" : "block";
-        }
-        function togglePrivacy() {
-            const p = document.getElementById("privacyModal");
-            p.style.display = (p.style.display === "block") ? "none" : "block";
         }
     </script>
 </body>
