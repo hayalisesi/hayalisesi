@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KQ36DLC51"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9KQ36DLC51');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAYALİ SESİ | Resmi Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d4af37; --bg: #030303; }
+        body { background: var(--bg); color: var(--gold); font-family: 'Fauna One', serif; overflow-x: hidden; }
+        .mist-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 0%, #000 80%); z-index: -2; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 25px; }
+        .hayali-mühür { width: 110px; height: 110px; background: url('kapak_logo.jpg'); background-size: cover; margin: 0 auto 15px auto; border-radius: 50%; border: 2px solid var(--gold); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); }
+        .song-btn { transition: 0.3s; border-bottom: 1px solid rgba(212, 175, 55, 0.05); cursor: pointer; }
+        .song-btn:hover { background: rgba(212, 175, 55, 0.1); padding-left: 10px; color: white; }
+        .active-song { background: rgba(212, 175, 55, 0.15); border-left: 4px solid var(--gold); color: white; padding-left: 10px; }
+        .lyrics-box { display: none; margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.5); border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.1); font-style: italic; line-height: 1.8; color: #ccc; }
+        #privacyModal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
+        .custom-scroll::-webkit-scrollbar { width: 5px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="mist-bg"></div>
+
+    <header class="pt-12 pb-8 text-center px-4">
+        <div class="hayali-mühür"></div>
+        <h1 class="text-4xl font-bold tracking-[0.2em] mb-2" style="font-family: 'Cinzel';">HAYALİ SESİ</h1>
+        <p class="text-[9px] tracking-[0.4em] uppercase opacity-40 mb-6">@hayalisesi</p>
+        
+        <div class="flex justify-center gap-10 flex-wrap text-left">
+            <div class="flex flex-col gap-3">
+                <a href="https://open.spotify.com/search/hayalisesi9" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" class="w-4 invert"> Spotify</a>
+                <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-4 invert"> YouTube</a>
+            </div>
+            <div class="flex flex-col gap-3">
+                <a href="https://www.instagram.com/hayalisesi" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" class="w-4 invert"> Instagram</a>
+                <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="flex items-center gap-2 opacity-70 hover:opacity-100 transition text-[10px] tracking-widest font-bold"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="w-4 invert"> TikTok</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+            <div class="glass-card p-5">
+                <div class="relative pb-[56.25%] h-0 rounded-xl overflow-hidden border border-[#d4af37]/20">
+                    <iframe id="mainPlayer" class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/FL-Zobmon9g?autoplay=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="mt-8 text-center">
+                    <h2 id="nowPlayingTitle" class="text-xl tracking-widest uppercase" style="font-family: 'Cinzel';">Canımın İçi</h2>
+                    <button onclick="toggleLyrics()" class="mt-4 text-[9px] border border-[#d4af37]/30 px-6 py-2 rounded-full uppercase tracking-widest hover:bg-[#d4af37] hover:text-black transition">Sözleri Gör</button>
+                    <div id="lyricsBox" class="lyrics-box text-sm">
+                        Seçili şarkının mühürlü sözleri burada belirecek...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-1">
+            <div class="glass-card p-6 h-[600px] flex flex-col">
+                <h3 class="text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#d4af37]/20 pb-2">Eser Koleksiyonu</h3>
+                <div class="overflow-y-auto flex-grow custom-scroll pr-2 space-y-1">
+                    <div onclick="updatePlayer('FL-Zobmon9g', 'Canımın İçi', this)" class="song-btn p-3 text-[11px] active-song">01. Canımın İçi</div>
+                    <div onclick="updatePlayer('VNAHXaY5W40', 'Barış Artık Kendinle', this)" class="song-btn p-3 text-[11px]">02. Barış Artık Kendinle</div>
+                    <div onclick="updatePlayer('kmwuYJOedyo', 'Geceye Sor', this)" class="song-btn p-3 text-[11px]">03. Geceye Sor</div>
+                    <div onclick="updatePlayer('Yj3NPAjolmk', 'Camdan Maske', this)" class="song-btn p-3 text-[11px]">04. Camdan Maske</div>
+                    <div onclick="updatePlayer('SEI3KBZR6Q0', 'Van Kadını', this)" class="song-btn p-3 text-[11px]">05. Van Kadını</div>
+                    <div onclick="updatePlayer('mdDS2YwY2Uo', 'Van Gölü Kadını', this)" class="song-btn p-3 text-[11px]">06. Van Gölü Kadını</div>
+                    <div onclick="updatePlayer('Lzu3-6FeoD0', 'Ritmi Yakala', this)" class="song-btn p-3 text-[11px]">07. Ritmi Yakala</div>
+                    <div onclick="updatePlayer('lMubzKgZYZ4', 'Gözleri Işıl Işıl', this)" class="song-btn p-3 text-[11px]">08. Gözleri Işıl Işıl</div>
+                    <div onclick="updatePlayer('eqIMiXuXL8U', 'Zıp Zıp Doğum Günü', this)" class="song-btn p-3 text-[11px]">09. Zıp Zıp Doğum Günü</div>
+                    <div onclick="updatePlayer('pVZxtS8fjgo', 'Camdan Kafes', this)" class="song-btn p-3 text-[11px]">10. Camdan Kafes</div>
+                    <div onclick="updatePlayer('irCMj2n5tac', 'Öğretmenim Sönmeyen Kandil', this)" class="song-btn p-3 text-[11px]">11. Öğretmenim Sönmeyen Kandil</div>
+                    <div onclick="updatePlayer('Q-I3aALfp64', 'Yabancı Kollar', this)" class="song-btn p-3 text-[11px]">12. Yabancı Kollar</div>
+                    <div onclick="updatePlayer('7PLX1uQ3t_c', 'Sonunda Biz', this)" class="song-btn p-3 text-[11px]">13. Sonunda Biz</div>
+                    <div onclick="updatePlayer('9MnO_G7zNB8', 'Bu Vatan', this)" class="song-btn p-3 text-[11px]">14. Bu Vatan</div>
+                    <div onclick="updatePlayer('T8jFhq2UZ8I', 'Yapayalnızım', this)" class="song-btn p-3 text-[11px]">15. Yapayalnızım</div>
+                    <div onclick="updatePlayer('eOSEqLg07aw', 'Tam Vaktindeyim', this)" class="song-btn p-3 text-[11px]">16. Tam Vaktindeyim</div>
+                    <div onclick="updatePlayer('hC6CcyPYgvE', 'Dizlerimdeki Yük', this)" class="song-btn p-3 text-[11px]">17. Dizlerimdeki Yük</div>
+                    <div onclick="updatePlayer('sRwUoFo4rj0', 'Tam Vaktindeyim Yavaş', this)" class="song-btn p-3 text-[11px]">18. Tam Vaktindeyim Yavaş</div>
+                    <div onclick="updatePlayer('e1faYbvg_lI', 'Anadolu Kadını', this)" class="song-btn p-3 text-[11px]">19. Anadolu Kadını</div>
+                    <div onclick="updatePlayer('ZboGEuvSOsk', 'Gülüşün Karanlık Utandırır', this)" class="song-btn p-3 text-[11px]">20. Gülüşün Karanlık Utandırır</div>
+                    <div onclick="updatePlayer('I8pJvFOMsfc', 'Annem Yorgun Meleğim', this)" class="song-btn p-3 text-[11px]">21. Annem Yorgun Meleğim</div>
+                    <div onclick="updatePlayer('83X_3gxLyoo', 'Annem', this)" class="song-btn p-3 text-[11px]">22. Annem</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="max-w-4xl mx-auto px-6 py-16">
+        <div class="glass-card p-8">
+            <h3 class="text-xs tracking-[0.4em] uppercase mb-8 text-center">Gönül Defteri</h3>
+            <form name="gonul_defteri" method="POST" data-netlify="true" class="space-y-4">
+                <input type="text" name="mahlas" placeholder="Mahlasınız" required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-[#d4af37]">
+                <textarea name="mesaj" rows="3" placeholder="Hasretinizi mühürleyin..." required class="w-full bg-white/5 border border-white/10 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-[#d4af37]"></textarea>
+                <button type="submit" class="w-full bg-[#d4af37] text-black py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:opacity-80 transition">Mührü Bas</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center opacity-30 border-t border-white/5">
+        <button onclick="togglePrivacy()" class="text-[9px] uppercase tracking-[0.3em] mb-4">Gizlilik Açıklaması</button>
+        <p class="text-[9px] tracking-[0.5em] uppercase">© 2026 HAYALİ SESİ</p>
+    </footer>
+
+    <div id="privacyModal">
+        <div class="max-w-xl mx-auto mt-24 p-10 glass-card mx-6 text-[11px] text-gray-400 italic">
+            <h2 class="text-xl mb-6 tracking-widest text-gold font-bold">GİZLİLİK POLİTİKASI</h2>
+            <p>Bu site Google Analytics (G-9KQ36DLC51) altyapısını kullanır. Verileriniz anonimdir.</p>
+            <button onclick="togglePrivacy()" class="mt-8 border border-gold px-8 py-2 text-[9px] uppercase transition">Kapat</button>
+        </div>
+    </div>
+
+    <script>
+        function updatePlayer(id, title, el) {
+            document.getElementById('mainPlayer').src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+            document.getElementById('nowPlayingTitle').innerText = title;
+            document.getElementById('lyricsBox').style.display = 'none';
+            document.querySelectorAll('.song-btn').forEach(btn => btn.classList.remove('active-song'));
+            el.classList.add('active-song');
+        }
+        function toggleLyrics() {
+            const b = document.getElementById("lyricsBox");
+            b.style.display = (b.style.display === "block") ? "none" : "block";
+        }
+        function togglePrivacy() {
+            const p = document.getElementById("privacyModal");
+            p.style.display = (p.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
