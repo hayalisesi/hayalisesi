@@ -17,107 +17,156 @@
     <style>
         :root { --gold: #d4af37; --bg: #030303; }
         body { background: var(--bg); color: var(--gold); font-family: 'Fauna One', serif; overflow-x: hidden; }
-        .mist-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.1) 0%, #000 80%); z-index: -2; }
-        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 25px; }
-        .hayali-mühür { width: 110px; height: 110px; background: url('kapak_logo.jpg'); background-size: cover; margin: 0 auto 15px auto; border-radius: 50%; border: 2px solid var(--gold); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); }
-        .song-btn { transition: 0.3s; border-bottom: 1px solid rgba(212, 175, 55, 0.05); cursor: pointer; }
-        .song-btn:hover { background: rgba(212, 175, 55, 0.1); padding-left: 10px; color: white; }
-        .active-song { background: rgba(212, 175, 55, 0.15); border-left: 4px solid var(--gold); color: white; padding-left: 10px; }
-        .custom-scroll::-webkit-scrollbar { width: 5px; }
+        
+        /* Arka plan efektleri */
+        .mist-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, #000 85%); z-index: -2; }
+        
+        /* Kart Tasarımları */
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 30px; transition: 0.4s; }
+        .glass-card:hover { border-color: rgba(212, 175, 55, 0.4); box-shadow: 0 0 30px rgba(212, 175, 55, 0.05); }
+
+        /* Logo Mührü */
+        .hayali-mühür { width: 120px; height: 120px; background: url('kapak_logo.jpg'); background-size: cover; margin: 0 auto 20px auto; border-radius: 50%; border: 2px solid var(--gold); box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); animation: pulse 4s infinite ease-in-out; }
+        
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.03); opacity: 0.8; } }
+
+        /* Kaydırma Çubuğu */
+        .custom-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
         .custom-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-        footer p { margin-bottom: 8px; }
+        
+        /* Shorts Slider */
+        .shorts-container { display: flex; gap: 15px; overflow-x: auto; padding-bottom: 15px; scroll-behavior: smooth; }
+        .short-item { flex: 0 0 120px; aspect-ratio: 9/16; border-radius: 15px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); cursor: pointer; transition: 0.3s; position: relative; }
+        .short-item:hover { transform: scale(1.05); border-color: var(--gold); }
+        .short-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
+        .short-item:hover img { opacity: 1; }
+        .short-play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: white; opacity: 0.8; }
+
+        .song-btn { transition: 0.3s; border-bottom: 1px solid rgba(212, 175, 55, 0.03); cursor: pointer; }
+        .song-btn:hover { background: rgba(212, 175, 55, 0.1); padding-left: 15px; color: white; }
+        .active-song { background: rgba(212, 175, 55, 0.15); border-left: 4px solid var(--gold); color: white; padding-left: 15px; }
     </style>
 </head>
 <body>
     <div class="mist-bg"></div>
-    <header class="pt-12 pb-8 text-center px-4">
+    
+    <header class="pt-16 pb-12 text-center px-4">
         <div class="hayali-mühür"></div>
-        <h1 class="text-4xl font-bold tracking-[0.2em] mb-2" style="font-family: 'Cinzel';">HAYALİ SESİ</h1>
-        <p class="text-[9px] tracking-[0.4em] uppercase opacity-40 mb-6 italic">@hayalisesi</p>
+        <h1 class="text-5xl font-bold tracking-[0.25em] mb-3" style="font-family: 'Cinzel';">HAYALİ SESİ</h1>
+        <p class="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-8 italic">@hayalisesi</p>
         
-        <div class="max-w-xl mx-auto mb-8">
-            <p class="text-[11px] tracking-[0.2em] uppercase opacity-80 leading-relaxed">
+        <div class="max-w-2xl mx-auto mb-10">
+            <p class="text-[12px] tracking-[0.2em] uppercase opacity-80 leading-relaxed font-bold">
                 HAYALİ SESİ eserlerinin tamamı tüm dijital platformlarda yayındadır.
             </p>
-            <div style="width: 40px; height: 1px; background: var(--gold); margin: 15px auto; opacity: 0.3;"></div>
+            <div style="width: 60px; height: 1px; background: var(--gold); margin: 20px auto; opacity: 0.3;"></div>
         </div>
         
-        <div class="flex justify-center gap-8 flex-wrap text-left text-[10px] font-bold tracking-widest">
-            <div class="flex flex-col gap-4">
-                <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
-                    <i class="fab fa-youtube text-lg"></i> YouTube (@hayalisesi)
+        <div class="flex justify-center gap-10 flex-wrap text-left text-[11px] font-bold tracking-[0.15em]">
+            <div class="flex flex-col gap-5">
+                <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-3">
+                    <i class="fab fa-youtube text-xl"></i> YouTube (@hayalisesi)
                 </a>
-                <a href="https://www.instagram.com/hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
-                    <i class="fab fa-instagram text-lg"></i> Instagram (@hayalisesi)
+                <a href="https://www.instagram.com/hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-3">
+                    <i class="fab fa-instagram text-xl"></i> Instagram (@hayalisesi)
                 </a>
             </div>
-            <div class="flex flex-col gap-4">
-                <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
-                    <i class="fab fa-tiktok text-lg"></i> TikTok (@hayalisesi)
+            <div class="flex flex-col gap-5">
+                <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-3">
+                    <i class="fab fa-tiktok text-xl"></i> TikTok (@hayalisesi)
                 </a>
-                <a href="https://open.spotify.com/playlist/4eSEQS0wckzS1zgMDQq1Od" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
-                    <i class="fab fa-spotify text-lg"></i> Spotify (Hayali Sesi)
+                <a href="SPOTIFY_LINKIN_BURAYA" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-3">
+                    <i class="fab fa-spotify text-xl"></i> Spotify (Hayali Sesi)
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <div class="lg:col-span-2">
-            <div class="glass-card p-5 text-center">
-                <div class="relative pb-[56.25%] h-0 rounded-xl overflow-hidden border border-[#d4af37]/20">
+    <main class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 space-y-8">
+            <div class="glass-card p-6">
+                <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden border border-[#d4af37]/20 shadow-2xl">
                     <iframe id="mainPlayer" class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/FL-Zobmon9g" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <h2 id="nowPlayingTitle" class="mt-8 text-xl tracking-widest uppercase" style="font-family: 'Cinzel';">Canımın İçi</h2>
+                <div class="flex justify-between items-center mt-8">
+                    <h2 id="nowPlayingTitle" class="text-2xl tracking-widest uppercase" style="font-family: 'Cinzel';">Canımın İçi</h2>
+                    <span class="text-[10px] opacity-40 tracking-widest uppercase">Şimdi Oynatılıyor</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-6">
+                <h3 class="text-xs tracking-[0.4em] uppercase mb-6 opacity-60">Kısa Videolar (Shorts)</h3>
+                <div class="shorts-container custom-scroll">
+                    <div onclick="updatePlayer('FL-Zobmon9g', 'Shorts 1', this)" class="short-item">
+                        <img src="https://img.youtube.com/vi/FL-Zobmon9g/0.jpg">
+                        <i class="fas fa-play short-play-icon"></i>
+                    </div>
+                    <div onclick="updatePlayer('VNAHXaY5W40', 'Shorts 2', this)" class="short-item">
+                        <img src="https://img.youtube.com/vi/VNAHXaY5W40/0.jpg">
+                        <i class="fas fa-play short-play-icon"></i>
+                    </div>
+                    <div onclick="updatePlayer('kmwuYJOedyo', 'Shorts 3', this)" class="short-item">
+                        <img src="https://img.youtube.com/vi/kmwuYJOedyo/0.jpg">
+                        <i class="fas fa-play short-play-icon"></i>
+                    </div>
+                    <div onclick="updatePlayer('Yj3NPAjolmk', 'Shorts 4', this)" class="short-item">
+                        <img src="https://img.youtube.com/vi/Yj3NPAjolmk/0.jpg">
+                        <i class="fas fa-play short-play-icon"></i>
+                    </div>
+                    <div onclick="updatePlayer('SEI3KBZR6Q0', 'Shorts 5', this)" class="short-item">
+                        <img src="https://img.youtube.com/vi/SEI3KBZR6Q0/0.jpg">
+                        <i class="fas fa-play short-play-icon"></i>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="lg:col-span-1">
-            <div class="glass-card p-6 h-[500px] flex flex-col">
-                <h3 class="text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#d4af37]/20 pb-2">Eser Koleksiyonu</h3>
-                <div class="overflow-y-auto flex-grow custom-scroll pr-2 space-y-1">
-                    <div onclick="updatePlayer('FL-Zobmon9g', 'Canımın İçi', this)" class="song-btn p-3 text-[11px] active-song">01. Canımın İçi</div>
-                    <div onclick="updatePlayer('VNAHXaY5W40', 'Barış Artık Kendinle', this)" class="song-btn p-3 text-[11px]">02. Barış Artık Kendinle</div>
-                    <div onclick="updatePlayer('kmwuYJOedyo', 'Geceye Sor', this)" class="song-btn p-3 text-[11px]">03. Geceye Sor</div>
-                    <div onclick="updatePlayer('Yj3NPAjolmk', 'Camdan Maske', this)" class="song-btn p-3 text-[11px]">04. Camdan Maske</div>
-                    <div onclick="updatePlayer('SEI3KBZR6Q0', 'Van Kadını', this)" class="song-btn p-3 text-[11px]">05. Van Kadını</div>
-                    <div onclick="updatePlayer('mdDS2YwY2Uo', 'Van Gölü Kadını', this)" class="song-btn p-3 text-[11px]">06. Van Gölü Kadını</div>
-                    <div onclick="updatePlayer('Lzu3-6FeoD0', 'Ritmi Yakala', this)" class="song-btn p-3 text-[11px]">07. Ritmi Yakala</div>
-                    <div onclick="updatePlayer('lMubzKgZYZ4', 'Gözleri Işıl Işıl', this)" class="song-btn p-3 text-[11px]">08. Gözleri Işıl Işıl</div>
-                    <div onclick="updatePlayer('eqIMiXuXL8U', 'Zıp Zıp Doğum Günü', this)" class="song-btn p-3 text-[11px]">09. Zıp Zıp Doğum Günü</div>
-                    <div onclick="updatePlayer('pVZxtS8fjgo', 'Camdan Kafes', this)" class="song-btn p-3 text-[11px]">10. Camdan Kafes</div>
-                    <div onclick="updatePlayer('irCMj2n5tac', 'Öğretmenim Sönmeyen Kandil', this)" class="song-btn p-3 text-[11px]">11. Öğretmenim Sönmeyen Kandil</div>
-                    <div onclick="updatePlayer('Q-I3aALfp64', 'Yabancı Kollar', this)" class="song-btn p-3 text-[11px]">12. Yabancı Kollar</div>
-                    <div onclick="updatePlayer('7PLX1uQ3t_c', 'Sonunda Biz', this)" class="song-btn p-3 text-[11px]">13. Sonunda Biz</div>
-                    <div onclick="updatePlayer('9MnO_G7zNB8', 'Bu Vatan', this)" class="song-btn p-3 text-[11px]">14. Bu Vatan</div>
-                    <div onclick="updatePlayer('T8jFhq2UZ8I', 'Yapayalnızım', this)" class="song-btn p-3 text-[11px]">15. Yapayalnızım</div>
-                    <div onclick="updatePlayer('eOSEqLg07aw', 'Tam Vaktindeyim', this)" class="song-btn p-3 text-[11px]">16. Tam Vaktindeyim</div>
-                    <div onclick="updatePlayer('hC6CcyPYgvE', 'Dizlerimdeki Yük', this)" class="song-btn p-3 text-[11px]">17. Dizlerimdeki Yük</div>
-                    <div onclick="updatePlayer('sRwUoFo4rj0', 'Tam Vaktindeyim Yavaş', this)" class="song-btn p-3 text-[11px]">18. Tam Vaktindeyim Yavaş</div>
-                    <div onclick="updatePlayer('e1faYbvg_lI', 'Anadolu Kadını', this)" class="song-btn p-3 text-[11px]">19. Anadolu Kadını</div>
-                    <div onclick="updatePlayer('ZboGEuvSOsk', 'Gülüşün Karanlık Utandırır', this)" class="song-btn p-3 text-[11px]">20. Gülüşün Karanlık Utandırır</div>
-                    <div onclick="updatePlayer('I8pJvFOMsfc', 'Annem Yorgun Meleğim', this)" class="song-btn p-3 text-[11px]">21. Annem Yorgun Meleğim</div>
-                    <div onclick="updatePlayer('83X_3gxLyoo', 'Annem', this)" class="song-btn p-3 text-[11px]">22. Annem</div>
+            <div class="glass-card p-8 h-[740px] flex flex-col">
+                <h3 class="text-xs tracking-[0.4em] uppercase mb-6 border-b border-[#d4af37]/20 pb-4 text-center">Eser Koleksiyonu</h3>
+                <div class="overflow-y-auto flex-grow custom-scroll pr-3 space-y-2">
+                    <div onclick="updatePlayer('FL-Zobmon9g', 'Canımın İçi', this)" class="song-btn p-4 text-[12px] active-song">01. Canımın İçi</div>
+                    <div onclick="updatePlayer('VNAHXaY5W40', 'Barış Artık Kendinle', this)" class="song-btn p-4 text-[12px]">02. Barış Artık Kendinle</div>
+                    <div onclick="updatePlayer('kmwuYJOedyo', 'Geceye Sor', this)" class="song-btn p-4 text-[12px]">03. Geceye Sor</div>
+                    <div onclick="updatePlayer('Yj3NPAjolmk', 'Camdan Maske', this)" class="song-btn p-4 text-[12px]">04. Camdan Maske</div>
+                    <div onclick="updatePlayer('SEI3KBZR6Q0', 'Van Kadını', this)" class="song-btn p-4 text-[12px]">05. Van Kadını</div>
+                    <div onclick="updatePlayer('mdDS2YwY2Uo', 'Van Gölü Kadını', this)" class="song-btn p-4 text-[12px]">06. Van Gölü Kadını</div>
+                    <div onclick="updatePlayer('Lzu3-6FeoD0', 'Ritmi Yakala', this)" class="song-btn p-4 text-[12px]">07. Ritmi Yakala</div>
+                    <div onclick="updatePlayer('lMubzKgZYZ4', 'Gözleri Işıl Işıl', this)" class="song-btn p-4 text-[12px]">08. Gözleri Işıl Işıl</div>
+                    <div onclick="updatePlayer('eqIMiXuXL8U', 'Zıp Zıp Doğum Günü', this)" class="song-btn p-4 text-[12px]">09. Zıp Zıp Doğum Günü</div>
+                    <div onclick="updatePlayer('pVZxtS8fjgo', 'Camdan Kafes', this)" class="song-btn p-4 text-[12px]">10. Camdan Kafes</div>
+                    <div onclick="updatePlayer('irCMj2n5tac', 'Öğretmenim Sönmeyen Kandil', this)" class="song-btn p-4 text-[12px]">11. Öğretmenim Sönmeyen Kandil</div>
+                    <div onclick="updatePlayer('Q-I3aALfp64', 'Yabancı Kollar', this)" class="song-btn p-4 text-[12px]">12. Yabancı Kollar</div>
+                    <div onclick="updatePlayer('7PLX1uQ3t_c', 'Sonunda Biz', this)" class="song-btn p-4 text-[12px]">13. Sonunda Biz</div>
+                    <div onclick="updatePlayer('9MnO_G7zNB8', 'Bu Vatan', this)" class="song-btn p-4 text-[12px]">14. Bu Vatan</div>
+                    <div onclick="updatePlayer('T8jFhq2UZ8I', 'Yapayalnızım', this)" class="song-btn p-4 text-[12px]">15. Yapayalnızım</div>
+                    <div onclick="updatePlayer('eOSEqLg07aw', 'Tam Vaktindeyim', this)" class="song-btn p-4 text-[12px]">16. Tam Vaktindeyim</div>
+                    <div onclick="updatePlayer('hC6CcyPYgvE', 'Dizlerimdeki Yük', this)" class="song-btn p-4 text-[12px]">17. Dizlerimdeki Yük</div>
+                    <div onclick="updatePlayer('sRwUoFo4rj0', 'Tam Vaktindeyim Yavaş', this)" class="song-btn p-4 text-[12px]">18. Tam Vaktindeyim Yavaş</div>
+                    <div onclick="updatePlayer('e1faYbvg_lI', 'Anadolu Kadını', this)" class="song-btn p-4 text-[12px]">19. Anadolu Kadını</div>
+                    <div onclick="updatePlayer('ZboGEuvSOsk', 'Gülüşün Karanlık Utandırır', this)" class="song-btn p-4 text-[12px]">20. Gülüşün Karanlık Utandırır</div>
+                    <div onclick="updatePlayer('I8pJvFOMsfc', 'Annem Yorgun Meleğim', this)" class="song-btn p-4 text-[12px]">21. Annem Yorgun Meleğim</div>
+                    <div onclick="updatePlayer('83X_3gxLyoo', 'Annem', this)" class="song-btn p-4 text-[12px]">22. Annem</div>
                 </div>
             </div>
         </div>
     </main>
 
-    <section class="max-w-4xl mx-auto px-6 py-16">
-        <div class="glass-card p-10 text-center">
-            <h3 class="text-xs tracking-[0.4em] uppercase mb-4">İletişim & İş Birliği</h3>
-            <p class="text-[11px] opacity-60 mb-6 italic">Hasretinizi veya projelerinizi mühürleyin.</p>
-            <a href="mailto:hakigol@gmail.com" class="text-lg font-bold tracking-widest hover:text-white transition" style="font-family: 'Cinzel';">
-                <i class="fas fa-envelope mr-2"></i> hakigol@gmail.com
+    <section class="max-w-4xl mx-auto px-6 py-20">
+        <div class="glass-card p-12 text-center">
+            <h3 class="text-xs tracking-[0.5em] uppercase mb-6 opacity-80">İletişim & İş Birliği</h3>
+            <p class="text-[12px] opacity-50 mb-8 italic leading-relaxed">Hasretinizi veya projelerinizi mühürlemek için bize ulaşın.</p>
+            <a href="mailto:hakigol@gmail.com" class="text-xl font-bold tracking-[0.2em] hover:text-white transition block" style="font-family: 'Cinzel';">
+                <i class="fas fa-envelope mr-3 text-gold"></i> hakigol@gmail.com
             </a>
         </div>
     </section>
 
-    <footer class="max-w-7xl mx-auto px-6 pb-12 text-center opacity-60">
-        <div style="border-top: 1px solid rgba(212, 175, 55, 0.2); margin-bottom: 20px;"></div>
-        <p class="text-[10px] tracking-widest uppercase">© 2026 HAYALİ SESİ - Tüm Hakları Saklıdır.</p>
-        <p class="text-[9px] italic leading-relaxed max-w-2xl mx-auto">
-            <strong>Gizlilik Bildirimi:</strong> Bu mühürlü sayfada sunulan tüm eserler, şarkı sözleri ve görsel tasarımlar şahsıma aittir. Ziyaretçilerimizin gizliliği esastır; bu platformda hiçbir kişisel veri toplanmamakta veya üçüncü şahıslarla paylaşılmamaktadır.
+    <footer class="max-w-7xl mx-auto px-6 pb-16 text-center opacity-40">
+        <div style="border-top: 1px solid rgba(212, 175, 55, 0.15); margin-bottom: 30px;"></div>
+        <p class="text-[11px] tracking-[0.3em] uppercase mb-4">© 2026 HAYALİ SESİ - Tüm Hakları Saklıdır.</p>
+        <p class="text-[10px] italic leading-relaxed max-w-3xl mx-auto">
+            <strong>Gizlilik Bildirimi:</strong> Bu mühürlü sayfada sunulan tüm eserler, şarkı sözleri ve görsel tasarımlar şahsıma aittir. Ziyaretçilerimizin gizliliği esastır; platformumuzda hiçbir kişisel veri toplanmamaktadır.
         </p>
     </footer>
 
@@ -126,7 +175,12 @@
             document.getElementById('mainPlayer').src = `https://www.youtube.com/embed/${id}?autoplay=1`;
             document.getElementById('nowPlayingTitle').innerText = title;
             document.querySelectorAll('.song-btn').forEach(btn => btn.classList.remove('active-song'));
-            el.classList.add('active-song');
+            
+            // Eğer buton listede ise aktif yap, Shorts ise yapma
+            if(el.classList.contains('song-btn')) {
+                el.classList.add('active-song');
+            }
+            window.scrollTo({ top: 100, behavior: 'smooth' });
         }
     </script>
 </body>
