@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KQ36DLC51"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9KQ36DLC51');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAYALİ SESİ | Shorts Galeri</title>
+    <title>HAYALİ SESİ | Resmi Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
@@ -11,75 +18,127 @@
         :root { --gold: #d4af37; --bg: #030303; }
         body { background: var(--bg); color: var(--gold); font-family: 'Fauna One', serif; overflow-x: hidden; }
         .mist-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, #000 85%); z-index: -2; }
-        .shorts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 25px; }
-        .short-card { position: relative; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); cursor: pointer; transition: 0.4s; background: #000; }
-        .short-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-        .short-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
-        .short-card:hover img { opacity: 1; }
-        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 32px; opacity: 0.8; }
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 30px; transition: 0.4s; }
+        .hayali-mühür { width: 120px; height: 120px; background: url('kapak_logo.jpg'); background-size: cover; margin: 0 auto 20px auto; border-radius: 50%; border: 2px solid var(--gold); box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        
+        .video-gallery { display: flex; gap: 20px; overflow-x: auto; padding: 20px 10px; scroll-behavior: smooth; }
+        .video-item { flex: 0 0 240px; border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); cursor: pointer; transition: 0.4s; position: relative; background: #000; }
+        .video-item:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); }
+        .video-item img { width: 100%; height: 135px; object-fit: cover; opacity: 0.7; transition: 0.3s; }
+        .video-item:hover img { opacity: 1; }
+        .video-title { padding: 12px; font-size: 10px; text-align: center; font-family: 'Cinzel'; tracking-widest; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .play-overlay { position: absolute; top: 45px; left: 50%; transform: translateX(-50%); color: white; font-size: 24px; opacity: 0; transition: 0.3s; }
+        .video-item:hover .play-overlay { opacity: 1; }
+
+        /* Ana Oynatıcı Boyut Ayarı */
+        .player-container { max-width: 700px; margin: 0 auto; }
     </style>
 </head>
 <body>
     <div class="mist-bg"></div>
     
     <header class="pt-16 pb-12 text-center px-4">
-        <h1 class="text-4xl font-bold tracking-[0.2em] mb-4" style="font-family: 'Cinzel';">KISA VİDEOLAR</h1>
-        <div style="width: 50px; height: 1px; background: var(--gold); margin: 0 auto 20px auto; opacity: 0.5;"></div>
-        <a href="index.html" class="text-[10px] tracking-[0.3em] uppercase opacity-60 hover:opacity-100 transition">
-            <i class="fas fa-arrow-left mr-2"></i> Ana Sayfaya Dön
-        </a>
+        <div class="hayali-mühür"></div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-[0.25em] mb-3" style="font-family: 'Cinzel';">HAYALİ SESİ</h1>
+        <p class="text-[10px] tracking-[0.5em] uppercase opacity-40 mb-8 italic">@hayalisesi</p>
+        
+        <div class="max-w-2xl mx-auto mb-10 px-4">
+            <p class="text-[11px] md:text-[12px] tracking-[0.2em] uppercase opacity-80 font-bold text-center">
+                HAYALİ SESİ eserlerinin tamamı tüm dijital platformlarda yayındadır.
+            </p>
+            <div style="width: 60px; height: 1px; background: var(--gold); margin: 20px auto; opacity: 0.3;"></div>
+        </div>
+        
+        <div class="flex justify-center gap-8 md:gap-12 flex-wrap text-left text-[10px] font-bold tracking-widest mb-10">
+            <div class="flex flex-col gap-4">
+                <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
+                    <i class="fab fa-youtube text-lg"></i> YouTube (@hayalisesi)
+                </a>
+                <a href="https://www.instagram.com/hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
+                    <i class="fab fa-instagram text-lg"></i> Instagram (@hayalisesi)
+                </a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
+                    <i class="fab fa-tiktok text-lg"></i> TikTok (@hayalisesi)
+                </a>
+                <a href="https://open.spotify.com/artist/77VlYpGk5680pZ7Yf3M6Yk" target="_blank" class="opacity-70 hover:opacity-100 transition flex items-center gap-2">
+                    <i class="fab fa-spotify text-lg"></i> Spotify (Hayali Sesi)
+                </a>
+            </div>
+        </div>
+
+        <div class="mt-6 mb-12 text-center">
+            <a href="shorts.html" class="inline-block px-10 py-3 border border-[#d4af37]/40 rounded-full text-[11px] tracking-[0.3em] font-bold uppercase hover:bg-[#d4af37] hover:text-black transition-all">
+                <i class="fas fa-bolt mr-2"></i> Shorts Videolarını Gör
+            </a>
+        </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 pb-24">
-        <div class="shorts-grid">
-            <div class="short-card" onclick="openShort('GgufBiBomp4')">
-                <img src="https://img.youtube.com/vi/GgufBiBomp4/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('l8DDJJhlGeQ')">
-                <img src="https://img.youtube.com/vi/l8DDJJhlGeQ/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('plNyeq5w-10')">
-                <img src="https://img.youtube.com/vi/plNyeq5w-10/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('l1BH_2PqRMs')">
-                <img src="https://img.youtube.com/vi/l1BH_2PqRMs/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('p9ZsoqcsQbg')">
-                <img src="https://img.youtube.com/vi/p9ZsoqcsQbg/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('sZhKvlYcAGQ')">
-                <img src="https://img.youtube.com/vi/sZhKvlYcAGQ/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('V4uIWaXPrEI')">
-                <img src="https://img.youtube.com/vi/V4uIWaXPrEI/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('C9Vvb2KlAL4')">
-                <img src="https://img.youtube.com/vi/C9Vvb2KlAL4/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('M056rPNyBM8')">
-                <img src="https://img.youtube.com/vi/M056rPNyBM8/0.jpg"><i class="fas fa-play play-overlay"></i>
+    <main class="max-w-6xl mx-auto px-6">
+        <div class="player-container mb-12">
+            <div class="glass-card p-4">
+                <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden border border-[#d4af37]/20 shadow-2xl">
+                    <iframe id="mainPlayer" class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/FL-Zobmon9g" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="text-center mt-6">
+                    <h2 id="nowPlayingTitle" class="text-xl tracking-widest uppercase" style="font-family: 'Cinzel';">Canımın İçi</h2>
+                </div>
             </div>
         </div>
-    </main>
 
-    <div id="videoModal" class="fixed inset-0 bg-black/95 hidden z-50 flex items-center justify-center p-4">
-        <button onclick="closeShort()" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
-        <div class="w-full max-w-[360px] aspect-[9/16]">
-            <iframe id="modalIframe" class="w-full h-full rounded-3xl border border-gold/30" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
-        </div>
-    </div>
-
-    <script>
-        function openShort(id) {
-            document.getElementById('modalIframe').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
-            document.getElementById('videoModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeShort() {
-            document.getElementById('videoModal').classList.add('hidden');
-            document.getElementById('modalIframe').src = '';
-            document.body.style.overflow = 'auto';
-        }
-    </script>
-</body>
-</html>
+        <div class="glass-card p-6">
+            <h3 class="text-xs tracking-[0.4em] uppercase mb-6 text-center opacity-60">Eser Koleksiyonu</h3>
+            <div class="video-gallery custom-scroll">
+                <div onclick="updatePlayer('FL-Zobmon9g', 'Canımın İçi')" class="video-item">
+                    <img src="https://img.youtube.com/vi/FL-Zobmon9g/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">01. Canımın İçi</div>
+                </div>
+                <div onclick="updatePlayer('VNAHXaY5W40', 'Barış Artık Kendinle')" class="video-item">
+                    <img src="https://img.youtube.com/vi/VNAHXaY5W40/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">02. Barış Artık Kendinle</div>
+                </div>
+                <div onclick="updatePlayer('kmwuYJOedyo', 'Geceye Sor')" class="video-item">
+                    <img src="https://img.youtube.com/vi/kmwuYJOedyo/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">03. Geceye Sor</div>
+                </div>
+                <div onclick="updatePlayer('Yj3NPAjolmk', 'Camdan Maske')" class="video-item">
+                    <img src="https://img.youtube.com/vi/Yj3NPAjolmk/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">04. Camdan Maske</div>
+                </div>
+                <div onclick="updatePlayer('SEI3KBZR6Q0', 'Van Kadını')" class="video-item">
+                    <img src="https://img.youtube.com/vi/SEI3KBZR6Q0/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">05. Van Kadını</div>
+                </div>
+                <div onclick="updatePlayer('mdDS2YwY2Uo', 'Van Gölü Kadını')" class="video-item">
+                    <img src="https://img.youtube.com/vi/mdDS2YwY2Uo/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">06. Van Gölü Kadını</div>
+                </div>
+                <div onclick="updatePlayer('Lzu3-6FeoD0', 'Ritmi Yakala')" class="video-item">
+                    <img src="https://img.youtube.com/vi/Lzu3-6FeoD0/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">07. Ritmi Yakala</div>
+                </div>
+                <div onclick="updatePlayer('lMubzKgZYZ4', 'Gözleri Işıl Işıl')" class="video-item">
+                    <img src="https://img.youtube.com/vi/lMubzKgZYZ4/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">08. Gözleri Işıl Işıl</div>
+                </div>
+                <div onclick="updatePlayer('eqIMiXuXL8U', 'Zıp Zıp Doğum Günü')" class="video-item">
+                    <img src="https://img.youtube.com/vi/eqIMiXuXL8U/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">09. Zıp Zıp Doğum Günü</div>
+                </div>
+                <div onclick="updatePlayer('pVZxtS8fjgo', 'Camdan Kafes')" class="video-item">
+                    <img src="https://img.youtube.com/vi/pVZxtS8fjgo/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">10. Camdan Kafes</div>
+                </div>
+                <div onclick="updatePlayer('irCMj2n5tac', 'Öğretmenim Kandil')" class="video-item">
+                    <img src="https://img.youtube.com/vi/irCMj2n5tac/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">11. Öğretmenim</div>
+                </div>
+                <div onclick="updatePlayer('Q-I3aALfp64', 'Yabancı Kollar')" class="video-item">
+                    <img src="https://img.youtube.com/vi/Q-I3aALfp64/0.jpg"><i class="fas fa-play play-overlay"></i>
+                    <div class="video-title">12. Yabancı Kollar</div>
+                </div>
+                <div onclick="updatePlayer('7PLX1uQ3t_c', 'Sonunda Biz')" class="video-item">
+                    <img src="https://img.youtube.com/vi/7PLX1uQ3t_c/0.jpg"><i class="fas fa-play play-overlay"></i>
