@@ -8,73 +8,111 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --bg: #030303; }
-        body { background: var(--bg); color: var(--gold); font-family: 'Fauna One', serif; overflow-x: hidden; }
-        .mist-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, #000 85%); z-index: -2; }
-        .shorts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 25px; }
-        .short-card { position: relative; aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); cursor: pointer; transition: 0.4s; background: #000; }
-        .short-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-        .short-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
+        :root { --gold: #b38b1d; --bg: #fdfbf7; --text: #2c2416; }
+        body { background: var(--bg); color: var(--text); font-family: 'Fauna One', serif; overflow-x: hidden; }
+        .light-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f7f1e6 100%); z-index: -2; }
+        
+        /* Shorts Izgara Düzeni (10 ve üzeri video için ideal) */
+        .shorts-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+            gap: 25px; 
+            padding: 20px 0;
+        }
+        
+        .short-card { 
+            position: relative; 
+            aspect-ratio: 9/16; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 3px solid white; 
+            cursor: pointer; 
+            transition: 0.4s; 
+            background: #fff; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        }
+        
+        .short-card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--gold); 
+            box-shadow: 0 15px 30px rgba(179, 139, 29, 0.2); 
+        }
+        
+        .short-card img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            opacity: 0.9; 
+            transition: 0.3s; 
+        }
+        
         .short-card:hover img { opacity: 1; }
-        .play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 32px; opacity: 0.8; }
+        
+        .play-icon { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white; 
+            font-size: 32px; 
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            opacity: 0.8;
+        }
+
+        .back-btn { 
+            transition: 0.3s; 
+            border: 1.5px solid var(--gold); 
+            border-radius: 50px; 
+            font-size: 11px; 
+            letter-spacing: 2px; 
+            padding: 12px 25px; 
+            font-weight: bold; 
+            color: var(--gold); 
+            display: inline-block;
+        }
+        .back-btn:hover { background: var(--gold); color: white; }
     </style>
 </head>
 <body>
-    <div class="mist-bg"></div>
+    <div class="light-bg"></div>
     
     <header class="pt-16 pb-12 text-center px-4">
-        <h1 class="text-4xl font-bold tracking-[0.2em] mb-4" style="font-family: 'Cinzel';">KISA VİDEOLAR</h1>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-[0.2em] mb-4" style="font-family: 'Cinzel'; color: #1a140a;">KISA VİDEOLAR</h1>
         <div style="width: 50px; height: 1px; background: var(--gold); margin: 0 auto 20px auto; opacity: 0.5;"></div>
-        <a href="index.html" class="text-[10px] tracking-[0.3em] uppercase opacity-60 hover:opacity-100 transition">
+        <a href="index.html" class="back-btn uppercase">
             <i class="fas fa-arrow-left mr-2"></i> Ana Sayfaya Dön
         </a>
     </header>
 
     <main class="max-w-6xl mx-auto px-6 pb-24">
         <div class="shorts-grid">
-             <div class="short-card" onclick="openShort('qbN5Mu2cImE')">
-                <img src="https://img.youtube.com/vi/qbN5Mu2cImE/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('0qP5MkcjDEQ')">
-                <img src="https://img.youtube.com/vi/0qP5MkcjDEQ/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('Nawya_26FjA')">
-                <img src="https://img.youtube.com/vi/Nawya_26FjA/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('plNyeq5w-10')">
-                <img src="https://img.youtube.com/vi/plNyeq5w-10/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('l1BH_2PqRMs')">
-                <img src="https://img.youtube.com/vi/l1BH_2PqRMs/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('p9ZsoqcsQbg')">
-                <img src="https://img.youtube.com/vi/p9ZsoqcsQbg/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('sZhKvlYcAGQ')">
-                <img src="https://img.youtube.com/vi/sZhKvlYcAGQ/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('V4uIWaXPrEI')">
-                <img src="https://img.youtube.com/vi/V4uIWaXPrEI/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('C9Vvb2KlAL4')">
-                <img src="https://img.youtube.com/vi/C9Vvb2KlAL4/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
-            <div class="short-card" onclick="openShort('M056rPNyBM8')">
-                <img src="https://img.youtube.com/vi/M056rPNyBM8/0.jpg"><i class="fas fa-play play-overlay"></i>
-            </div>
+            <div class="short-card" onclick="openShort('GgufBiBomp4')"><img src="https://img.youtube.com/vi/GgufBiBomp4/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('l8DDJJhlGeQ')"><img src="https://img.youtube.com/vi/l8DDJJhlGeQ/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('plNyeq5w-10')"><img src="https://img.youtube.com/vi/plNyeq5w-10/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('l1BH_2PqRMs')"><img src="https://img.youtube.com/vi/l1BH_2PqRMs/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('p9ZsoqcsQbg')"><img src="https://img.youtube.com/vi/p9ZsoqcsQbg/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('sZhKvlYcAGQ')"><img src="https://img.youtube.com/vi/sZhKvlYcAGQ/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('V4uIWaXPrEI')"><img src="https://img.youtube.com/vi/V4uIWaXPrEI/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('C9Vvb2KlAL4')"><img src="https://img.youtube.com/vi/C9Vvb2KlAL4/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('M056rPNyBM8')"><img src="https://img.youtube.com/vi/M056rPNyBM8/0.jpg"><i class="fas fa-play play-icon"></i></div>
+            <div class="short-card" onclick="openShort('YOUTUBE_ID_10')"><img src="https://img.youtube.com/vi/YOUTUBE_ID_10/0.jpg"><i class="fas fa-play play-icon"></i></div>
         </div>
     </main>
 
-    <div id="videoModal" class="fixed inset-0 bg-black/95 hidden z-50 flex items-center justify-center p-4">
-        <button onclick="closeShort()" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
-        <div class="w-full max-w-[360px] aspect-[9/16]">
-            <iframe id="modalIframe" class="w-full h-full rounded-3xl border border-gold/30" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
+    <div id="videoModal" class="fixed inset-0 bg-white/95 hidden z-50 flex items-center justify-center p-4">
+        <button onclick="closeShort()" class="absolute top-6 right-6 text-gold text-4xl">&times;</button>
+        <div class="w-full max-w-[380px] aspect-[9/16]">
+            <iframe id="modalIframe" class="w-full h-full rounded-3xl border-4 border-white shadow-2xl" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
         </div>
     </div>
 
+    <footer class="text-center pb-12 opacity-50">
+        <p class="text-[10px] tracking-widest uppercase font-bold text-[#1a140a]">© 2026 HAYALİ SESİ</p>
+    </footer>
+
     <script>
         function openShort(id) {
-            document.getElementById('modalIframe').src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+            document.getElementById('modalIframe').src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0";
             document.getElementById('videoModal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
