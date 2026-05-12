@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9KQ36DLC51"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-9KQ36DLC51');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HAYALİ SESİ | Resmi Portal</title>
@@ -15,100 +8,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --bg: #030303; }
-        body { background: var(--bg); color: var(--gold); font-family: 'Fauna One', serif; overflow-x: hidden; }
-        .mist-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, #000 85%); z-index: -2; }
-        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.15); border-radius: 30px; transition: 0.4s; }
-        .hayali-mühür { width: 100px; height: 100px; background: url('kapak_logo.jpg'); background-size: cover; margin: 0 auto 15px auto; border-radius: 50%; border: 2px solid var(--gold); box-shadow: 0 0 25px rgba(212, 175, 55, 0.2); }
-        .custom-scroll::-webkit-scrollbar { height: 6px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        :root { --gold: #b38b1d; --bg: #fdfbf7; --text: #2c2416; }
+        body { background: var(--bg); color: var(--text); font-family: 'Fauna One', serif; overflow-x: hidden; }
+        .light-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f7f1e6 100%); z-index: -2; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(179, 139, 29, 0.15); border-radius: 30px; transition: 0.4s; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+        .hayali-mühür { width: 100px; height: 100px; background: url('kapak_logo.jpg'); background-size: cover; background-position: center; margin: 0 auto 15px auto; border-radius: 50%; border: 3px solid var(--gold); box-shadow: 0 5px 20px rgba(179, 139, 29, 0.2); }
         .video-gallery { display: flex; gap: 20px; overflow-x: auto; padding: 20px 10px; scroll-behavior: smooth; }
-        .video-item { flex: 0 0 200px; border-radius: 15px; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.2); cursor: pointer; transition: 0.4s; background: #000; }
-        .video-item img { width: 100%; height: 110px; object-fit: cover; opacity: 0.7; }
-        .video-title { padding: 8px; font-size: 9px; text-align: center; font-family: 'Cinzel'; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .player-wrapper { max-width: 540px; margin: 0 auto; }
-        .nav-btn { transition: 0.3s; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; font-size: 10px; letter-spacing: 2px; padding: 10px 20px; font-weight: bold; }
-        .nav-btn:hover { background: var(--gold); color: black; }
-        
-        /* Günün Sözü Alanı Stili */
-        .gunun-sozu { max-width: 600px; margin: 0 auto 40px auto; padding: 25px; position: relative; border-left: 1px solid var(--gold); border-right: 1px solid var(--gold); }
-        .gunun-sozu::before, .gunun-sozu::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
-        .gunun-sozu::before { top: 0; } .gunun-sozu::after { bottom: 0; }
+        .video-item { flex: 0 0 180px; border-radius: 15px; overflow: hidden; border: 1px solid rgba(179, 139, 29, 0.1); cursor: pointer; transition: 0.4s; background: #fff; }
+        .video-item:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .video-item img { width: 100%; height: 100px; object-fit: cover; }
+        .video-title { padding: 10px; font-size: 9px; text-align: center; font-family: 'Cinzel'; text-transform: uppercase; color: var(--text); font-weight: bold; }
+        .player-wrapper { max-width: 560px; margin: 0 auto; }
+        .nav-btn { transition: 0.3s; border: 1.5px solid var(--gold); border-radius: 50px; font-size: 10px; letter-spacing: 2px; padding: 10px 20px; font-weight: bold; color: var(--gold); }
+        .nav-btn:hover { background: var(--gold); color: white; }
+        .gunun-sozu { max-width: 600px; margin: 0 auto 30px auto; padding: 20px; border-left: 2px solid var(--gold); border-right: 2px solid var(--gold); background: rgba(255,255,255,0.4); }
     </style>
 </head>
 <body>
-    <div class="mist-bg"></div>
-    
+    <div class="light-bg"></div>
     <header class="pt-10 pb-6 text-center px-4">
         <div class="hayali-mühür"></div>
-        <h1 class="text-3xl font-bold tracking-[0.2em] mb-2" style="font-family: 'Cinzel';">HAYALİ SESİ</h1>
-        <p class="text-[9px] tracking-[0.4em] uppercase opacity-40 mb-6 italic">@hayalisesi</p>
+        <h1 class="text-3xl font-bold tracking-[0.2em] mb-2" style="font-family: 'Cinzel'; color: #1a140a;">HAYALİ SESİ</h1>
+        <p class="text-[9px] tracking-[0.4em] uppercase opacity-50 mb-6 italic">@hayalisesi</p>
 
-        <div class="gunun-sozu px-6">
-            <span class="text-[8px] tracking-[0.5em] uppercase opacity-40 block mb-3">- Günün Mührü -</span>
-            <p class="text-[13px] md:text-[15px] italic leading-relaxed opacity-90 tracking-wide">
-                "Bazen bir hayal, bin gerçeklikten daha fazla ses getirir kalpte."
-            </p>
+        <div class="gunun-sozu px-6 rounded-xl">
+            <span class="text-[8px] tracking-[0.5em] uppercase opacity-40 block mb-2">- GÜNÜN MÜHRÜ -</span>
+            <p class="text-[14px] italic text-[#3d321d]">"Bazen bir hayal, bin gerçeklikten daha fazla ses getirir kalpte."</p>
         </div>
 
-        <div class="flex justify-center gap-4 mb-10">
-            <a href="shorts.html" class="nav-btn uppercase"><i class="fas fa-bolt mr-2"></i> Shorts</a>
-            <a href="sozler.html" class="nav-btn uppercase"><i class="fas fa-pen-nib mr-2"></i> Sözler</a>
+        <div class="flex justify-center gap-4 mb-8">
+            <a href="shorts.html" class="nav-btn uppercase shadow-sm">Shorts</a>
+            <a href="sozler.html" class="nav-btn uppercase shadow-sm">Sözler</a>
         </div>
 
-        <div class="flex justify-center gap-8 flex-wrap text-left text-[10px] font-bold tracking-widest mb-10 opacity-70 border-b border-gold/10 pb-8">
-            <div class="flex flex-col gap-3">
-                <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="hover:text-white transition flex items-center gap-2"><i class="fab fa-youtube"></i> YouTube</a>
-                <a href="https://www.instagram.com/hayalisesi" target="_blank" class="hover:text-white transition flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram</a>
-            </div>
-            <div class="flex flex-col gap-3">
-                <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="hover:text-white transition flex items-center gap-2"><i class="fab fa-tiktok"></i> TikTok</a>
-                <a href="https://open.spotify.com/playlist/4eSEQS0wckzS1zgMDQq1Od?si=PhlU1URSQ_WYxOfKxPb8cA" target="_blank" class="hover:text-white transition flex items-center gap-2"><i class="fab fa-spotify"></i> Spotify</a>
-            </div>
+        <div class="flex justify-center gap-8 flex-wrap text-[10px] font-bold tracking-widest mb-8 text-[#5c4a24]">
+            <a href="https://www.youtube.com/@hayalisesi" target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/hayalisesi" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@hayalisesi" target="_blank">TikTok</a>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-6">
-        <div class="player-wrapper mb-12">
-            <div class="glass-card p-4">
-                <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden border border-gold/20 shadow-2xl">
+        <div class="player-wrapper mb-10 text-center">
+            <div class="glass-card p-4 shadow-xl">
+                <div class="relative pb-[56.25%] h-0 rounded-2xl overflow-hidden border-2 border-white">
                     <iframe id="mainPlayer" class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/FL-Zobmon9g" frameborder="0" allowfullscreen></iframe>
                 </div>
-                <h2 id="nowPlayingTitle" class="mt-4 text-center text-md tracking-widest uppercase" style="font-family: 'Cinzel';">Canımın İçi</h2>
+                <h2 id="nowPlayingTitle" class="mt-4 text-md tracking-widest uppercase font-bold text-[#1a140a]" style="font-family: 'Cinzel';">Canımın İçi</h2>
             </div>
-        </div>
-
-        <div class="glass-card p-6 mb-12">
-            <h3 class="text-xs tracking-[0.4em] uppercase mb-4 text-center opacity-60">Eser Koleksiyonu</h3>
-            <div class="video-gallery custom-scroll">
-                <div onclick="updatePlayer('FL-Zobmon9g', 'Canımın İçi')" class="video-item"><img src="https://img.youtube.com/vi/FL-Zobmon9g/0.jpg"><div class="video-title">01. Canımın İçi</div></div>
-                <div onclick="updatePlayer('VNAHXaY5W40', 'Barış Artık Kendinle')" class="video-item"><img src="https://img.youtube.com/vi/VNAHXaY5W40/0.jpg"><div class="video-title">02. Barış Artık Kendinle</div></div>
-                <div onclick="updatePlayer('kmwuYJOedyo', 'Geceye Sor')" class="video-item"><img src="https://img.youtube.com/vi/kmwuYJOedyo/0.jpg"><div class="video-title">03. Geceye Sor</div></div>
-                </div>
         </div>
     </main>
 
-    <section class="max-w-4xl mx-auto px-6 py-10">
-        <div class="glass-card p-10 text-center border-gold/30">
-            <h3 class="text-[11px] tracking-[0.4em] uppercase mb-4 opacity-70">İletişim & İş Birliği</h3>
-            <a href="mailto:hakigol@gmail.com" class="text-xl font-bold tracking-widest text-white hover:text-gold transition">
-                <i class="fas fa-envelope mr-2 text-gold"></i> hakigol@gmail.com
-            </a>
-        </div>
-    </section>
-
-    <footer class="max-w-7xl mx-auto px-6 pb-12 text-center opacity-40">
-        <div style="border-top: 1px solid rgba(212, 175, 55, 0.2); margin-bottom: 20px;"></div>
-        <p class="text-[10px] tracking-widest uppercase mb-4">© 2026 HAYALİ SESİ - Tüm Hakları Saklıdır.</p>
-        <p class="text-[9px] italic max-w-2xl mx-auto">Gizlilik Bildirimi: Tüm haklar şahsıma aittir. Veri toplanmamaktadır.</p>
+    <footer class="text-center pb-12 opacity-50">
+        <a href="mailto:hakigol@gmail.com" class="text-lg font-bold tracking-widest text-[#1a140a] hover:text-[#b38b1d] block mb-4">hakigol@gmail.com</a>
+        <p class="text-[9px] tracking-widest uppercase font-bold text-[#1a140a]">© 2026 HAYALİ SESİ</p>
+        <p class="text-[8px] italic mt-2">Gizlilik Bildirimi: Tüm haklar mühürlüdür.</p>
     </footer>
-
-    <script>
-        function updatePlayer(id, title) {
-            document.getElementById('mainPlayer').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
-            document.getElementById('nowPlayingTitle').innerText = title;
-            window.scrollTo({ top: 150, behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>
