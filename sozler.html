@@ -8,139 +8,63 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --bg: #030303; }
-        body { background: var(--bg); color: var(--gold); font-family: 'Fauna One', serif; overflow-x: hidden; }
-        .mist-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, #000 85%); z-index: -2; }
-        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.1); border-radius: 20px; transition: 0.4s; }
-        
-        /* Akordeon Tasarımı */
-        .lyric-box { border-bottom: 1px solid rgba(212, 175, 55, 0.1); transition: 0.3s; }
-        .lyric-box:hover { background: rgba(212, 175, 55, 0.02); }
-        .lyric-content { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.5s ease-out; 
-            color: rgba(212, 175, 55, 0.8); 
-            line-height: 1.8; 
-            font-size: 14px; 
-            white-space: pre-line;
-            text-align: center;
-        }
-        .active .lyric-content { max-height: 2000px; padding: 30px 10px; }
-        .active .toggle-btn i { transform: rotate(180deg); color: white; }
-        .toggle-btn { cursor: pointer; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        :root { --gold: #b38b1d; --bg: #fdfbf7; }
+        body { background: var(--bg); color: #2c2416; font-family: 'Fauna One', serif; }
+        .light-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f7f1e6 100%); z-index: -2; }
+        .glass-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(179, 139, 29, 0.15); border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+        .lyric-box { text-align: center; color: #4a3f2d; line-height: 2.2; white-space: pre-line; padding: 40px; }
     </style>
 </head>
 <body>
-    <div class="mist-bg"></div>
-    
-    <header class="pt-16 pb-12 text-center px-4">
-        <h1 class="text-3xl md:text-4xl font-bold tracking-[0.2em] mb-4" style="font-family: 'Cinzel';">ESER SÖZLERİ</h1>
-        <div style="width: 50px; height: 1px; background: var(--gold); margin: 0 auto 20px auto; opacity: 0.5;"></div>
-        <a href="index.html" class="text-[10px] tracking-[0.3em] uppercase opacity-60 hover:opacity-100 transition">
-            <i class="fas fa-arrow-left mr-2"></i> Ana Sayfaya Dön
-        </a>
+    <div class="light-bg"></div>
+    <header class="pt-20 pb-12 text-center">
+        <h1 class="text-3xl font-bold tracking-[0.2em] mb-4 text-[#1a140a]" style="font-family: 'Cinzel';">SÖZLER</h1>
+        <a href="index.html" class="text-[10px] tracking-[0.3em] uppercase font-bold text-[#b38b1d]">Dön</a>
     </header>
-
-    <main class="max-w-3xl mx-auto px-6 pb-24">
-        <div class="glass-card overflow-hidden">
-            <div class="lyric-box" onclick="this.classList.toggle('active')">
-                <div class="toggle-btn">
-                    <h2 class="text-sm tracking-widest uppercase" style="font-family: 'Cinzel';">01. Canımın İçi</h2>
-                    <i class="fas fa-chevron-down text-xs opacity-40"></i>
-                </div>
-                <div class="lyric-content">Daha dünyaya düşmeden önce bir damla gibi,
-İçimde yeşeren, o en güzel dua gibi.
-Seni beklemek, baharı beklemekten daha uzundu
-Gelişinle tüm karanlıklar, aydınlığa büründü.
-Küçücük ellerin tutunca parmağımı ilk kez
-Anladım ki bu sevda, başka hiçbir şeye benzemez.
-
-Dünya bazen yorsa da, senin bir gülüşün yeter
-Seninle her sabah, güneş içime daha parlak doğar.
-Sen benim en güzel bekleyişim, en büyük zaferimsin...
-
-Canımın içi, ruhumun öteki yarısı
-Seninle silindi hayatın tüm acı hatırası.
-Umutla bakıyoruz şimdi gelen her yeni güne
-Seni saran kollarım, sığınaktır senin her haline.
-Büyü güzel bebeğim, sevgiyle, iyilikle büyü
-Seninle daha güzel, dünyanın her bir yüzü.
-
-İlk adımın, ilk kelimen, o dünyalar güzeli sesin
-Hayat denen bu yolda, en huzurlu nefesimsin.
-Ben seninle öğrendim yeniden gökkuşağını
-Korkma hiç yarından, ben tutarım senin her anını.
-Pozitif bir rüya gibi, her günümüz yeni bir şans
-Hayat seninle bir kutlama, en zarifinden bir dans.
-
-(Müzik iyice yumuşar, fısıltı tadında bir vokal)
-Dileğim odur ki; yolun hep çiçekli olsun
-Yüreğin merhametle, hayatın neşeyle dolsun.
-Her düştüğünde, elinden tutan bir iyilik bulunsun...
-Çünkü sen sevgiden doğdun, sevgiyle kalasın.
-
-Canımın içi, ruhumun öteki yarısı
-Seninle silindi hayatın tüm acı hatırası.
-Umutla bakıyoruz şimdi gelen her yeni güne
-Seni saran kollarım, sığınaktır senin her haline.
-
-Mışıl mışıl uyu...
-Melekler korusun seni...
-Umutla uyan her sabaha...
-Canımın içi...
-...</div>
-            </div>
-
-            <div class="lyric-box" onclick="this.classList.toggle('active')">
-                <div class="toggle-btn">
-                    <h2 class="text-sm tracking-widest uppercase" style="font-family: 'Cinzel';">02. Barış Artık Kendinle</h2>
-                    <i class="fas fa-chevron-down text-xs opacity-40"></i>
-                </div>
-                <div class="lyric-content">Sözler buraya gelecek...</div>
-            </div>
-
-            <div class="lyric-box" onclick="this.classList.toggle('active')">
-                <div class="toggle-btn">
-                    <h2 class="text-sm tracking-widest uppercase" style="font-family: 'Cinzel';">03. Geceye Sor</h2>
-                    <i class="fas fa-chevron-down text-xs opacity-40"></i>
-                </div>
-                <div class="lyric-content">Sözler buraya gelecek...</div>
-            </div>
-
-            <div class="lyric-box" onclick="this.classList.toggle('active')">
-                <div class="toggle-btn">
-                    <h2 class="text-sm tracking-widest uppercase" style="font-family: 'Cinzel';">04. Camdan Maske</h2>
-                    <i class="fas fa-chevron-down text-xs opacity-40"></i>
-                </div>
-                <div class="lyric-content">Sözler buraya gelecek...</div>
-            </div>
-
-            <div class="lyric-box" onclick="this.classList.toggle('active')">
-                <div class="toggle-btn">
-                    <h2 class="text-sm tracking-widest uppercase" style="font-family: 'Cinzel';">05. Van Kadını</h2>
-                    <i class="fas fa-chevron-down text-xs opacity-40"></i>
-                </div>
-                <div class="lyric-content">Sözler buraya gelecek...</div>
-            </div>
-
-            <div class="lyric-box" onclick="this.classList.toggle('active')">
-                <div class="toggle-btn">
-                    <h2 class="text-sm tracking-widest uppercase" style="font-family: 'Cinzel';">06. Van Gölü Kadını</h2>
-                    <i class="fas fa-chevron-down text-xs opacity-40"></i>
-                </div>
-                <div class="lyric-content">Sözler buraya gelecek...</div>
-            </div>
-
-            <div class="p-8 text-center opacity-30 text-[10px] tracking-[0.3em]">
-                DİĞER ESERLER YÜKLENİYOR...
-            </div>
+    <main class="max-w-2xl mx-auto px-6 pb-24">
+        <div class="glass-card lyric-box">
+            <h2 class="text-xl font-bold mb-8 text-[#1a140a]" style="font-family: 'Cinzel';">01. CANIMIN İÇİ</h2>
+            Daha dünyaya düşmeden önce bir damla gibi,
+            İçimde yeşeren, o en güzel dua gibi.
+            Seni beklemek, baharı beklemekten daha uzundu
+            Gelişinle tüm karanlıklar, aydınlığa büründü.
+            Küçücük ellerin tutunca parmağımı ilk kez
+            Anladım ki bu sevda, başka hiçbir şeye benzemez.
+             
+            Dünya bazen yorsa da, senin bir gülüşün yeter
+            Seninle her sabah, güneş içime daha parlak doğar.
+            Sen benim en güzel bekleyişim, en büyük zaferimsin...
+             
+            Canımın içi, ruhumun öteki yarısı
+            Seninle silindi hayatın tüm acı hatırası.
+            Umutla bakıyoruz şimdi gelen her yeni güne
+            Seni saran kollarım, sığınaktır senin her haline.
+            Büyü güzel bebeğim, sevgiyle, iyilikle büyü
+            Seninle daha güzel, dünyanın her bir yüzü.
+             
+            İlk adımın, ilk kelimen, o dünyalar güzeli sesin
+            Hayat denen bu yolda, en huzurlu nefesimsin.
+            Ben seninle öğrendim yeniden gökkuşağını
+            Korkma hiç yarından, ben tutarım senin her anını.
+            Pozitif bir rüya gibi, her günümüz yeni bir şans
+            Hayat seninle bir kutlama, en zarifinden bir dans.
+             
+            (Müzik iyice yumuşar...)
+            Dileğim odur ki; yolun hep çiçekli olsun
+            Yüreğin merhametle, hayatın neşeyle dolsun.
+            Her düştüğünde, elinden tutan bir iyilik bulunsun...
+            Çünkü sen sevgiden doğdun, sevgiyle kalasın.
+             
+            Canımın içi, ruhumun öteki yarısı
+            Seninle silindi hayatın tüm acı hatırası.
+            Umutla bakıyoruz şimdi gelen her yeni güne
+            Seni saran kollarım, sığınaktır senin her haline.
+             
+            Mışıl mışıl uyu...
+            Melekler korusun seni...
+            Umutla uyan her sabaha...
+            Canımın içi...
         </div>
     </main>
-
-    <footer class="text-center pb-16 opacity-40">
-        <p class="text-[10px] uppercase tracking-widest mb-2">© 2026 HAYALİ SESİ</p>
-        <p class="text-[9px] italic px-6">Tüm eserlerin telif hakları mühürlüdür.</p>
-    </footer>
 </body>
 </html>
