@@ -209,53 +209,86 @@
         </a>
     </div>
 
-    <div class="glass-card p-7 text-center min-h-[240px] border-l-2 border-r-2 border-[#b38b1d]/40 hover:-translate-y-1">
-        <span class="text-[8px] tracking-[0.5em] uppercase opacity-50 block mb-4 font-bold">- GÜNÜN MÜHRÜ -</span>
-        <p class="text-[15px] italic text-[#3d321d] leading-relaxed font-semibold">
-    "Asıl mesele,<br>
-    insanları hayatında tutmak değilmiş.<br><br>
+   <div class="glass-card p-7 text-center min-h-[240px] border-l-2 border-r-2 border-[#b38b1d]/40 hover:-translate-y-1">
+    <span class="text-[8px] tracking-[0.5em] uppercase opacity-50 block mb-4 font-bold">- GÜNÜN MÜHRÜ -</span>
 
-    Gitmek için bahane arayanlarla,<br>
-    kalmak için sebep arayanları<br>
-    ayırt edebilmekmiş.<br><br>
+    <p id="gununMuhru" class="text-[15px] italic text-[#3d321d] leading-relaxed font-semibold"></p>
+</div>
 
-    Çünkü bazıları gitmek için bir neden arar,<br>
-    bazıları ise kalmak için bin sebep bulur."
-</p>
+<div class="glass-card p-7 text-center min-h-[240px] hover:-translate-y-1">
+    <span class="text-[8px] tracking-[0.4em] uppercase opacity-50 block mb-4">- CANLI FREKANS -</span>
+    <i class="fas fa-headphones text-2xl text-[#b38b1d] mb-4"></i>
+    <p class="text-[13px] text-[#4a3f2d] leading-relaxed mb-6">
+        Yeni eserleri, kısa videoları ve söz paylaşımlarını kaçırmamak için Hayali Sesi'ni takip et.
+    </p>
+    <div class="flex justify-center gap-5 text-lg text-[#b38b1d]">
+        <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="hover:scale-125 transition"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/hayalisesi" target="_blank" class="hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="hover:scale-125 transition"><i class="fab fa-tiktok"></i></a>
     </div>
-
-    <div class="glass-card p-7 text-center min-h-[240px] hover:-translate-y-1">
-        <span class="text-[8px] tracking-[0.4em] uppercase opacity-50 block mb-4">- CANLI FREKANS -</span>
-        <i class="fas fa-headphones text-2xl text-[#b38b1d] mb-4"></i>
-        <p class="text-[13px] text-[#4a3f2d] leading-relaxed mb-6">
-            Yeni eserleri, kısa videoları ve söz paylaşımlarını kaçırmamak için Hayali Sesi'ni takip et.
-        </p>
-        <div class="flex justify-center gap-5 text-lg text-[#b38b1d]">
-            <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="hover:scale-125 transition"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/hayalisesi" target="_blank" class="hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="hover:scale-125 transition"><i class="fab fa-tiktok"></i></a>
-        </div>
-    </div>
+</div>
 
 </section>
-    <footer class="text-center pb-12 opacity-50">
-        <div class="flex justify-center gap-8 flex-wrap text-[10px] font-bold tracking-widest mb-6 text-[#5c4a24]">
-            <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="hover:text-[#b38b1d] transition"><i class="fab fa-youtube mr-1"></i> YouTube</a>
-            <a href="https://www.instagram.com/hayalisesi" target="_blank" class="hover:text-[#b38b1d] transition"><i class="fab fa-instagram mr-1"></i> Instagram</a>
-            <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="hover:text-[#b38b1d] transition"><i class="fab fa-tiktok mr-1"></i> TikTok</a>
-        </div>
-        <a href="mailto:hakigol@gmail.com" class="text-lg font-bold tracking-widest text-[#1a140a] hover:text-[#b38b1d] transition block mb-4">
-            <i class="fas fa-envelope mr-2"></i> hakigol@gmail.com
-        </a>
-        <p class="text-[9px] tracking-widest uppercase font-bold text-[#1a140a]">© 2026 HAYALİ SESİ - Tüm Hakları Saklıdır.</p>
-    </footer>
 
-    <script>
-        function updatePlayer(id, title) {
-            document.getElementById('mainPlayer').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
-            document.getElementById('nowPlayingTitle').innerText = title;
-            window.scrollTo({ top: 100, behavior: 'smooth' });
-        }
-    </script>
+<footer class="text-center pb-12 opacity-50">
+    <div class="flex justify-center gap-8 flex-wrap text-[10px] font-bold tracking-widest mb-6 text-[#5c4a24]">
+        <a href="https://www.youtube.com/@hayalisesi" target="_blank" class="hover:text-[#b38b1d] transition"><i class="fab fa-youtube mr-1"></i> YouTube</a>
+        <a href="https://www.instagram.com/hayalisesi" target="_blank" class="hover:text-[#b38b1d] transition"><i class="fab fa-instagram mr-1"></i> Instagram</a>
+        <a href="https://www.tiktok.com/@hayalisesi" target="_blank" class="hover:text-[#b38b1d] transition"><i class="fab fa-tiktok mr-1"></i> TikTok</a>
+    </div>
+    <a href="mailto:hakigol@gmail.com" class="text-lg font-bold tracking-widest text-[#1a140a] hover:text-[#b38b1d] transition block mb-4">
+        <i class="fas fa-envelope mr-2"></i> hakigol@gmail.com
+    </a>
+    <p class="text-[9px] tracking-widest uppercase font-bold text-[#1a140a]">© 2026 HAYALİ SESİ - Tüm Hakları Saklıdır.</p>
+</footer>
+
+<script>
+    const sozler = [
+        `Asıl mesele,
+insanları hayatında tutmak değilmiş.
+
+Gitmek için bahane arayanlarla,
+kalmak için sebep arayanları
+ayırt edebilmekmiş.
+
+Çünkü bazıları gitmek için bir neden arar,
+bazıları ise kalmak için bin sebep bulur.`,
+
+        `Hayatta herkes yanında yürür.
+
+Ama yorulduğunda da kalanlar,
+gerçekten senin olanlardır.`,
+
+        `Kimseyi kaybetmedin.
+
+Sadece sana ait olmayan insanlar,
+kendi yollarına gitti.`,
+
+        `Bazen gitmek kaybetmek değildir.
+
+Asıl kayıp,
+kendinden vazgeçmektir.`,
+
+        `Bir gün anlayacaksın;
+
+hayatında kalmak isteyen insanlar için
+sürekli savaşman gerekmiyormuş.
+
+Çünkü gerçekten yanında olmak isteyenler,
+sen yorulduğunda da kalıyormuş.`
+    ];
+
+    let gun = new Date().getDate();
+
+    document.getElementById("gununMuhru").innerHTML =
+        sozler[gun % sozler.length].replace(/\n/g, "<br>");
+
+    function updatePlayer(id, title) {
+        document.getElementById('mainPlayer').src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+        document.getElementById('nowPlayingTitle').innerText = title;
+        window.scrollTo({ top: 100, behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>
