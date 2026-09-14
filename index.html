@@ -111,7 +111,9 @@ Yeni çıkan şarkılar, albümler, şarkı sözleri ve tüm dijital platform ba
         </div>
         <div class="glass-card p-6 mb-12">
             <h3 class="text-[10px] tracking-[0.4em] uppercase mb-6 text-center font-bold opacity-50">Eser Koleksiyonu</h3>
-  <div class="video-gallery custom-scroll">
+<div class="collection-container">
+    <button class="collection-arrow collection-arrow-left" onclick="scrollCollection(-1)">❮</button>
+    <div class="video-gallery custom-scroll" id="collectionScroll">
       <div onclick="updatePlayer('voWykQJLcuQ', 'Bıraktım')" class="video-item"><img src="https://img.youtube.com/vi/voWykQJLcuQ/0.jpg"><div class="video-title">303 Bıraktım</div></div>
 <div onclick="updatePlayer('MCPUJa_lDTQ', 'Biraz Huzur')" class="video-item"><img src="https://img.youtube.com/vi/MCPUJa_lDTQ/0.jpg"><div class="video-title">302 Biraz Huzur</div></div>
 <div onclick="updatePlayer('3BPIJ-HL3nc', 'Eski Sevdalar')" class="video-item"><img src="https://img.youtube.com/vi/3BPIJ-HL3nc/0.jpg"><div class="video-title">301 Eski Sevdalar</div></div>
@@ -416,7 +418,15 @@ Yeni çıkan şarkılar, albümler, şarkı sözleri ve tüm dijital platform ba
                 <div onclick="updatePlayer('I8pJvFOMsfc', 'Annem Yorgun Melek')" class="video-item"><img src="https://img.youtube.com/vi/I8pJvFOMsfc/0.jpg"><div class="video-title">2 Annem Yorgun</div></div>
                 <div onclick="updatePlayer('83X_3gxLyoo', 'Canım Annem')" class="video-item"><img src="https://img.youtube.com/vi/83X_3gxLyoo/0.jpg"><div class="video-title">1 Canım Annem</div></div>
             </div>
-        </div>
+          </div>
+
+    <button class="collection-arrow collection-arrow-right" onclick="scrollCollection(1)">
+        ❯
+    </button>
+
+</div>
+
+</div>
   
     <div class="glass-card p-6 mb-12">
 
